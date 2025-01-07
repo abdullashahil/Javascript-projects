@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    background-color: lightseagreen;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif; 
+}
+
+.home-div{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#reset-btn{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif; 
+    font-size: 20px;
+    border: none;
+    background-color: rgb(222, 0, 0);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-btn:hover{
+    opacity: 95%;
+}
+
+.game-title {
+    text-shadow: -4px 4px #000000;
+    font-size: 5rem;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease; 
+}
+
+.game-title-2 {
+    text-shadow: -4px 4px #000000;
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease; 
+}
+
+.game-title:hover {
+    text-shadow: -3px 3px #000000;
+}
+
+.play-btn {
+    text-align: center;
+    background-color: #ffffff;
+    width: 15%;
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px; 
+    cursor: pointer; 
+    box-shadow: -5px 5px #000000;
+    transition: all 0.3s ease; 
+}
+
+.play-btn:hover {
+    box-shadow: -2px 2px #000000;
+    transform: translateY(3px); 
+}
+
+/* Game.html */
+.score-result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1rem;
+}
+
+#result{
+    background-color: #000000;
+    color: white;
+    font-size: 35px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#score{
+    background-color: #000000;
+    color: white;
+    font-size: 35px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.score-result-font{
+    background-color: #000000;
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.results, .choices{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 10px; 
+    cursor: pointer; 
+    transition: all 0.3s ease; }
+
+.separation{
+    background-color: rgb(48, 48, 48);
+    height: 5rem;
+}
+
+.choice-box {
+    border: 2px solid rgb(0, 45, 93);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: center;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%; 
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.choice-btn{
+    width: 10%;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 20px 10px;
+    border: none;
+    border-radius: 10px; 
+    cursor: pointer; 
+    border: 1px solid black;
+}
+.choice-btn:hover {
+    opacity: 95%;
+}
+
+.gray{
+    color: gray;
+}
+
+.width-div{
+    width: 15rem ;
+}
