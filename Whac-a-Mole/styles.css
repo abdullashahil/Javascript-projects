@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    background-color: orange;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif; 
+}
+
+.home-div{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-title {
+    text-shadow: -4px 4px rgb(0, 0, 0);
+    font-size: 5rem;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    transition: all 0.3s ease; 
+}
+
+.game-title:hover {
+    text-shadow: -3px 3px rgb(68, 68, 68);
+}
+
+.play-btn {
+    text-align: center;
+    background-color: #000000;
+    width: 15%;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px; 
+    cursor: pointer; 
+    box-shadow: -5px 5px rgb(255, 255, 255);
+    transition: all 0.3s ease; 
+}
+
+.play-btn:hover {
+    box-shadow: -2px 2px rgb(212, 212, 212);
+    transform: translateY(3px); 
+}
+
+.grid{
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    margin: auto;
+    display: grid;
+    border: 2px solid rgb(0, 0, 0);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 40vw;
+    height: 60vh;
+    gap: 10px;
+}
+
+.header{
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 15rem;
+    margin-top: 4rem;
+}
+
+.square{    
+    border-radius: 10px;
+    border: 1px solid rgb(158, 158, 158);
+    cursor: pointer;
+}
+
+.square:hover{
+    border: 2px solid rgb(62, 62, 62);
+    box-shadow: -2px 2px rgb(177, 177, 177);
+    transition: 0.3s;
+}
+
+.mole{
+    background-image: url('./assets/mole\ \(1\).jpg');
+    background-size: cover;
+}
