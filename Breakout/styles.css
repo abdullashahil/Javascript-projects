@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    height: 100vh;
+    background-color: rgb(241, 241, 241);
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.game-title {
+    text-shadow: -4px 4px #000000;
+    font-size: 5rem;
+    text-align: center;
+    color: #5ba95b;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.game-title-2 {
+    text-shadow: -4px 4px #000000;
+    font-size: 3rem;
+    text-align: center;
+    color: rgb(91, 169, 91);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.game-title:hover {
+    text-shadow: -3px 3px #000000;
+}
+
+.play-btn {
+    text-align: center;
+    background-color: #5ba95b;
+    width: 15%;
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: -5px 5px #000000;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    box-shadow: -2px 2px #000000;
+    transform: translateY(3px);
+}
+
+.home-div {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    border: 1px solid rgb(224, 224, 224);
+}
+
+#retry {
+    position: absolute;
+    bottom: 30px;
+    left: 40vw;
+    right: 40vw;
+    /* width: 10vw; */
+    padding: 10px 20px;
+    font-size: x-large;
+    background-color: red;
+    color: white;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+#retry:hover {
+    background-color: rgb(255, 43, 43);
+    transition: 0.2s;
+}
+
+.grid-div{
+    display: flex;
+    border: 1px solid green;
+    
+}
+
+.score-board {
+    background-color: #5ba95b;
+    display: flex;
+    justify-content: start;
+    gap: 15px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 0px 10px;
+}
+
+#score {
+    background-color: black;
+    border-radius: 5px;
+    padding: 0px 10px;
+    color: white;
+    height: fit-content;
+    font-size: 4rem;
+}
+
+.score-title {
+    color: rgb(255, 255, 255);
+    height: fit-content;
+    font-size: 4rem;
+}
+
+#grid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border: 1px solid rgb(44, 44, 44);
+    display: grid;
+    gap: 10px;
+    width: 38vw;
+    height: 35vh;
+    margin: auto;
+    margin-top: 5rem;
+    border-radius: 10px;
+    background-color: #d6d6d6;
+    padding: 10px;
+}
+
+.block {
+    position: absolute;
+    width: 105px;
+    height: 25px;
+    background-color: rgb(0, 0, 133);
+    border-radius: 5px;
+}
+
+.user {
+    position: absolute;
+    width: 105px;
+    height: 25px;
+    background-color: purple;
+    border-radius: 5px;
+}
+
+.ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: red;
+}
