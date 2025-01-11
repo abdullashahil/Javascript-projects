@@ -52,23 +52,24 @@ body {
 }
 
 .grid {
-	width: 300px;
-	height: 300px;
+    margin: auto;
+	width: 600px;
+	height: 600px;
     background-color: white;
-    border: 2px solid gray;	
+    border: 5px solid gray;	
     display: flex;
 	flex-wrap: wrap;
     border-radius: 10px;
 }
 
 .grid div {
-	width: 20px;
-	height: 20px;
+	width: 40px;
+	height: 40px;
 }
 
 .invader {
 	background-color: purple;
-	border-radius: 10px;
+	border-radius: 20px;
 }
 
 .shooter {
@@ -81,4 +82,12 @@ body {
 
 .boom {
 	background-color: red;
+}
+
+.game-div{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
 }
