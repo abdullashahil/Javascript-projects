@@ -1,3 +1,8 @@
+// Audio effects
+const destroyAudio = new Audio('assets/rock-destroy.mp3');
+const gameOverAudio = new Audio('assets/game-over.mp3');
+const winningAudio = new Audio('assets/achievement-unlocked.mp3');
+
 const playButton = document.getElementById("playButton");
 
 if (playButton) {
@@ -51,13 +56,20 @@ function checkOutComes() {
 }
 
 function autoMoveElements() {
-    currentTime--
-    timeLeftDisplay.textContent = currentTime
-    logsLeft.forEach(logLeft => moveLogLeft(logLeft))
-    logsRight.forEach(logRight => moveLogRight(logRight))
-    carsLeft.forEach(carLeft => moveCarLeft(carLeft))
-    carsRight.forEach(carRight => moveCarRight(carRight))
+    if (currentTime > 0) {
+        currentTime--;
+        timeLeftDisplay.textContent = currentTime;
+    } else {
+        clearInterval(timerId);
+        resultDisplay.textContent = 'Time’s up! You lose!';
+        document.removeEventListener('keyup', moveFrog);
+    }
+    logsLeft.forEach(logLeft => moveLogLeft(logLeft));
+    logsRight.forEach(logRight => moveLogRight(logRight));
+    carsLeft.forEach(carLeft => moveCarLeft(carLeft));
+    carsRight.forEach(carRight => moveCarRight(carRight));
 }
+
 
 function moveLogLeft(logLeft) {
     switch(true) {
@@ -149,7 +161,12 @@ function lose() {
         squares[currentIndex].classList.contains('l4') ||
         squares[currentIndex].classList.contains('l5') ||
         currentTime <= 0
+
     ) {
+        destroyAudio.play()
+        setTimeout(() => {
+            gameOverAudio.play(); 
+        }, 1000); 
         resultDisplay.textContent = 'You lose!'
         clearInterval(timerId)
         clearInterval(outcomeTimerId)
@@ -160,6 +177,7 @@ function lose() {
 
 function win() {
     if (squares[currentIndex].classList.contains('ending-block')) {
+        winningAudio.play()
         resultDisplay.textContent = 'You Win!'
         clearInterval(timerId)
         clearInterval(outcomeTimerId)
