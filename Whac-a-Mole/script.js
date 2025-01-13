@@ -33,6 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 result++;
                 scoreDisplay.textContent = result;
                 hitPosition = null;
+
+                // play click sound
+                const sound = new Audio('assets/mouse-single-button-click-swoop-1-00-00.mp3');
+                sound.play();
             }
         });
     });
