@@ -159,10 +159,26 @@ body {
     border-radius: 10px; 
     cursor: pointer; 
     border: 1px solid black;
+    transition: transform 0.3s ease;
 }
 .choice-btn:hover {
     opacity: 95%;
 }
+
+
+
+.choice-btn:active {
+    transform: scale(1.1);
+}
+
+#player-choice, #computer-choice {
+    transition: transform 0.5s ease;
+}
+
+.highlight {
+    transform: scale(1.2); 
+}
+
 
 .gray{
     color: gray;

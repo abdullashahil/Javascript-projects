@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 displayResult(result);
 
                 updateScores(result);
+                playSound(result); // Play the corresponding sound effect
             });
         });
     }
@@ -46,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to determine the winner
     function determineWinner(playerChoice, computerChoice) {
-        // Clear previous highlights
         playerChoiceElement.classList.remove("highlight");
         computerChoiceElement.classList.remove("highlight");
 
@@ -87,7 +87,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     }
 
-    // Event listener for reset button
+    // Play sound effect
+    function playSound(result) {
+        let sound;
+        if (result === "You Win!") {
+            sound = new Audio('assets/achievement-unlocked-waterway-music-1-00-02.mp3');
+        } else if (result === "You Lose!") {
+            sound = new Audio('assets/game-over-female-gfx-sounds-1-00-01.mp3');
+        } else if (result === "It's a Tie!") {
+            sound = new Audio('assets/game-over-female-gfx-sounds-1-00-01.mp3');
+        }
+        sound.play();
+    }
+
     if (resetButton) {
         resetButton.addEventListener("click", resetGame);
     }
