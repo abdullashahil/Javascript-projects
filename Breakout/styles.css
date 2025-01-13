@@ -124,20 +124,28 @@ body {
     font-size: 4rem;
 }
 
+
+
 #grid {
     position: absolute;
     left: 0;
     right: 0;
-    border: 1px solid rgb(44, 44, 44);
+    border: 1px solid rgb(227, 227, 227);
     display: grid;
-    gap: 10px;
+    gap: 15px;
     width: 38vw;
     height: 35vh;
     margin: auto;
     margin-top: 5rem;
-    border-radius: 10px;
-    background-color: #d6d6d6;
+    border-radius: 12px;
+    background-color: #f4f4f4;
     padding: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out;
+}
+
+#grid:hover {
+    transform: scale(1.005);
 }
 
 .block {
@@ -148,18 +156,57 @@ body {
     border-radius: 5px;
 }
 
+.block {
+    position: absolute;
+    width: 105px;
+    height: 25px;
+    background-color: #5643e5; 
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.block:hover {
+    background-color: #6a61e1; 
+}
+
 .user {
     position: absolute;
     width: 105px;
     height: 25px;
-    background-color: purple;
+    background-color: #fb5234;
     border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.user:hover {
+    background-color: #fc7e50;
 }
 
 .ball {
     position: absolute;
     width: 20px;
     height: 20px;
-    border-radius: 10px;
-    background-color: red;
+    border-radius: 50%;
+    background-color: #fb5234; 
+    animation: ballMovement 1s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Ball movement animation */
+@keyframes ballMovement {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

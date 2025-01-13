@@ -1,3 +1,7 @@
+// Audio for block destruction
+const destroyAudio = new Audio('assets/rock-destroy.mp3');
+const gameOverAudio = new Audio('assets/game-over.mp3');
+
 const playButton = document.getElementById("playButton");
 
 if (playButton) {
@@ -127,6 +131,8 @@ function checkForCollisions() {
             changeDirection();
             score++;
             scoreDisplay.textContent = `${score}`;
+            destroyAudio.currentTime = 0.3;
+            destroyAudio.play();
             if (blocks.length === 0) {
                 scoreDisplay.textContent = 'You Win!';
                 clearInterval(timerId);
@@ -156,6 +162,7 @@ function checkForCollisions() {
         scoreDisplay.textContent = 'You lose!';
         document.removeEventListener('keydown', moveUser);
         retryButton.style.display = 'block';
+        gameOverAudio.play();
     }
 }
 
