@@ -32,40 +32,55 @@ document.addEventListener("DOMContentLoaded", () => {
     let cardsChosenIds = [];
     const cardsWon = [];
     let score = 0;
-    
+
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
-            const card = document.createElement('img');
-            card.setAttribute('src', './assets/blank.png');
-            card.setAttribute('data-id', i);
+            const card = document.createElement('div');
             card.classList.add('card');
+            card.setAttribute('data-id', i);
+
+            const cardInner = document.createElement('div');
+            cardInner.classList.add('card-inner');
+
+            const cardFront = document.createElement('div');
+            cardFront.classList.add('card-front');
+            cardFront.setAttribute('style', 'background-image: url(./assets/blank.png);');
+            cardFront.setAttribute('style', 'background-image: url(./assets/blank.png);');
+
+            const cardBack = document.createElement('div');
+            cardBack.classList.add('card-back');
+            cardBack.setAttribute('style', `background-image: url(${cardArray[i].img}); background-size: 100%;`);
+
+            cardInner.appendChild(cardFront);
+            cardInner.appendChild(cardBack);
+            card.appendChild(cardInner);
+
             card.addEventListener('click', flipCard);
             gridDisplay.appendChild(card);
         }
     }
 
     function checkMatch() {
-        const cards = document.querySelectorAll('img');
+        const cards = document.querySelectorAll('.card');
         const optionOneId = cardsChosenIds[0];
         const optionTwoId = cardsChosenIds[1];
 
         if (optionOneId === optionTwoId) {
-            cards[optionOneId].setAttribute('src', './assets/blank.png');
-            cards[optionTwoId].setAttribute('src', './assets/blank.png');
+            cards[optionOneId].querySelector('.card-inner').classList.remove('flipped');
+            cards[optionTwoId].querySelector('.card-inner').classList.remove('flipped');
             alert('You have clicked the same image!');
         } else if (cardsChosen[0] === cardsChosen[1]) {
             alert('You found a match!');
-            cards[optionOneId].setAttribute('src', './assets/white.png');
-            cards[optionTwoId].setAttribute('src', './assets/white.png');
             cards[optionOneId].removeEventListener('click', flipCard);
             cards[optionTwoId].removeEventListener('click', flipCard);
             cardsWon.push(cardsChosen);
             score++
             scoreDisplay.textContent = score;
-
         } else {
-            cards[optionOneId].setAttribute('src', './assets/blank.png');
-            cards[optionTwoId].setAttribute('src', './assets/blank.png');
+            setTimeout(() => {
+                cards[optionOneId].querySelector('.card-inner').classList.remove('flipped');
+                cards[optionTwoId].querySelector('.card-inner').classList.remove('flipped');
+            }, 1000);
             alert('Sorry, try again!');
         }
 
@@ -78,10 +93,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function flipCard() {
-        const cardId = this.getAttribute('data-id');
+        const card = this;
+        const cardId = card.getAttribute('data-id');
+        const cardInner = card.querySelector('.card-inner');
+
         cardsChosen.push(cardArray[cardId].name);
         cardsChosenIds.push(cardId);
-        this.setAttribute('src', cardArray[cardId].img);
+        
+        cardInner.classList.add('flipped');
 
         if (cardsChosen.length === 2) {
             setTimeout(checkMatch, 500);
