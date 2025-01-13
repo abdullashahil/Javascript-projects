@@ -1,12 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const playButton = document.getElementById("playButton");
-
-    if (playButton) {
-        playButton.addEventListener("click", () => {
-            window.location.href = "game.html";
-        });
-    }
+    // Audio effects
+    const gameOverAudio = new Audio('assets/game-over.mp3');
+    const winningAudio = new Audio('assets/achievement-unlocked.mp3');
 
     const grid = document.querySelector(".grid")
     const resultDisplay = document.querySelector(".results")
@@ -17,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isGoingRight = true
     let direction = 1
     let results = 0
-    
+
     for (let i = 0; i < 225; i++) {
         const square = document.createElement("div")
         grid.appendChild(square)
@@ -63,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener("keydown", moveShooter)
 
-
     function moveInvaders() {
         const leftEdge = alienInvaders[0] % width === 0
         const rightEdge = alienInvaders[alienInvaders.length - 1] % width === width - 1
@@ -90,15 +85,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         draw()
-    
+
+        // Check if invaders have reached the bottom or collided with the shooter
         if (squares[currentShooterIndex].classList.contains("invader")) {
+            gameOverAudio.play()
             resultDisplay.innerHTML = "GAME OVER"
             clearInterval(invadersId)
         }
     
+        // Check if all invaders are removed
         if (aliensRemoved.length === alienInvaders.length) {
+            winningAudio.play()
             resultDisplay.innerHTML = "YOU WIN"
             clearInterval(invadersId)
+        }
+
+        // Check if invaders have reached the bottom row (game over)
+        for (let i = 0; i < alienInvaders.length; i++) {
+            if (alienInvaders[i] >= (squares.length - width)) {
+                gameOverAudio.play()
+                resultDisplay.innerHTML = "GAME OVER"
+                clearInterval(invadersId)
+            }
         }
     }
 
