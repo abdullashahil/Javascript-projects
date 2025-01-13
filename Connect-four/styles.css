@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 body {
-    background-color: rgb(63, 0, 0);
+    background-color: rgb(132, 0, 0);
     color: white;
     box-sizing: border-box;
     margin: 0;
@@ -61,11 +61,6 @@ body {
     width: 420px;
 }
 
-.grid div {
-    height: 60px;
-    width: 60px;
-}
-
 .player-one {
     background-color: red;
     border-radius: 10px;
@@ -81,6 +76,25 @@ body {
     flex-direction: column;
     align-content: center;
     justify-content: center;
+}
+
+.grid div {
+    height: 60px;
+    width: 60px;
+    position: relative;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.taken {
+    transform: translateY(0);
+}
+
+.player-one,
+.player-two {
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    transition: bottom 0.5s ease-in-out; 
 }
 
 h3{
